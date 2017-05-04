@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
+    <title>Random Login Form</title>
+    <link rel="stylesheet" type="text/css" href="../styles/loginStyle.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </head>
 <body>
-Hello World in view
+<div class="body"></div>
+<div class="grad"></div>
+<div class="header">
+    <div>Site<span>Random</span></div>
+</div>
+<br>
+<div class="login">
+    <input type="text" placeholder="username" name="user"><br>
+    <input type="password" placeholder="password" name="password"><br>
+    <input type="button" value="Login" id="login">
+</div>
+<script src='../scripts/jquery-2.1.1.min.js'></script>
+<script>
+    $("#login").on("click", function () {
+        var data = {
+            userName: $("input[name='user']").val(),
+            passWord: $("input[name='password']").val()
+        }
+        $.ajax({
+                type: "POST",
+                url: "../system/login",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: "application/json",
+                success: function (result) {
+                    alert("success")
+                }
+            }
+        );
+    })
+</script>
+
 </body>
 </html>
