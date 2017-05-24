@@ -1,9 +1,11 @@
 package com.example.service;
 
 
+import com.example.model.User;
+
 /**
  * Created by yijinsheng on 2017/5/4.
  */
 public interface UserService {
-    boolean loginValid(String userName, String password);
+    User getUser(String userName, String password);
 }
